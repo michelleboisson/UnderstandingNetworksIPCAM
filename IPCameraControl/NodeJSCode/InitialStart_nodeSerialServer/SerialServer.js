@@ -17,14 +17,13 @@
 
 */
 
-
 var serialport = require("serialport"),				// include the serialport library
 	SerialPort  = serialport.SerialPort,			// make a local instance of serial
 	app = require('express')(),						// start Express framework
   	server = require('http').createServer(app),		// start an HTTP server
   	io = require('socket.io').listen(server);		// filter the server using socket.io
 
-var serialData = {};								// object to hold what goes out to the client
+// var serialData = {};								// object to hold what goes out to the client
 
 server.listen(8080);								// listen for incoming requests on the server
 
@@ -46,7 +45,7 @@ io.sockets.on('connection', function (socket) {
 	// if there's a socket client, listen for new serial data:  
 	myPort.on('data', function (data) {
 		// set the value property of scores to the serial string:
-		serialData.value = data;
+		var serialData = JSON.parse(data)
 		// for debugging, you should see this in Terminal:
 		// console.log(data);
 		// send a serial event to the web client with the data:

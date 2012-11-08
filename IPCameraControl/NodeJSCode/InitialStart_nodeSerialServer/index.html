@@ -10,21 +10,93 @@
 		socket.on('serialEvent', function (data) {
 			// look for the textDisplay element in the HTML below:
 			// console.log(data.value)
-			window.test = data.value;
-			window.array = test.split(',')
-			var element = document.getElementById('textDisplay');
+
+			var tilt = document.getElementById('tilt');
+			var focus = document.getElementById('focus');
+			var zoom = document.getElementById('zoom');
+			var iris = document.getElementById('iris');
+			var cameraSelectX = document.getElementById('cameraSelectX');
+			var cameraSelectY = document.getElementById('cameraSelectY');
+			var encoderValue = document.getElementById('encoderValue');
+
+			var cameraWindow = document.getElementById('cameraWindow');
+
 			// set the stuff inside the element's HTML tags to
 			// whatever the 'value' property of the received data is:
-			element.innerHTML = data.value;
+			tilt.innerHTML = data.tilt;
+			focus.innerHTML = data.focus;
+			zoom.innerHTML = data.zoom;
+			iris.innerHTML = data.iris;
+			// cameraSelectX.innerHTML = data.cameraSelectX;
+			// cameraSelectY.innerHTML = data.cameraSelectY;
+			encoderValue.innerHTML = data.encoderValue;
+
+
+
+			//BRUNA's Variables
+			cam_icm = 'http://128.122.151.224/'
+			cam_shop = 'http://128.122.151.221/'
+			cam_pcomp = 'http://128.122.151.188/'
+			cam_jroom = 'http://128.122.151.200'
+
+			view = 'view/viewer_index.shtml'
+			axis = 'axis-cgi/com/ptz.cgi?camera=1&'
+
+			if(data.cameraSelectX == "1023"){
+				cameraWindow.src=cam_icm
+				cameraSelectX.innerHTML = "ICM Room";
+			}
+			else if(data.cameraSelectX == "0"){
+				cameraWindow.src=cam_shop
+				cameraSelectX.innerHTML = "Shop";
+			}
+
+			if(data.cameraSelectY == "1023"){
+				cameraWindow.src=cam_pcomp
+				cameraSelectY.innerHTML = "PComp Room";
+			}
+			else if(data.cameraSelectY == "0"){
+				cameraWindow.src=cam_jroom
+				cameraSelectY.innerHTML = "J Room";
+			}
+
+
+			// console.log(data.tilt)
+
+			// if(data.tilt>=512){
+			// var s = document.createElement(“script”);
+			// s.setAttribute(“src”, “http://128.122.151.221/axis-cgi/com/ptz.cgi?camera=1&move=up”);
+			// document.body.appendChild(s);
+			// }
+
+
+			// var elem = document.getElementById("linkid");
+			// if (typeof elem.onclick == "function") {
+			//     elem.onclick.apply(elem);
+			// }
+
 		});
+
 	</script>
 
 	</head>
 	<body>
 
-	<div id="textDisplay">Sensor Readings</div>
+	<div id="tilt">Tilt Readings</div>
+	<div id="focus">Focus Readings</div>
+	<div id="zoom">Zoom Readings</div>
+	<div id="iris">Iris Readings</div>
+	<div id="cameraSelectX">Camera X Readings</div>
+	<div id="cameraSelectY">Camera Y Readings</div>
+	<div id="encoderValue">Encoder Readings</div>
+
 	
-	<iframe style="width:1000px; height:1000px;" src="http://128.122.151.224/view/viewer_index.shtml?id=931"></iframe>
-	
+	<iframe id ="cameraWindow" style="width:1000px; height:1000px;" src="http://128.122.151.224/view/viewer_index.shtml?id=931"></iframe>
+
+<FORM>
+<INPUT TYPE="button" onClick="http://128.122.151.221/axis-cgi/com/ptz.cgi?camera=1&move=up">
+</FORM>
+
+
 	</body>
 </html>

@@ -8,13 +8,16 @@ char id=0;
 
 void setup(){
   Serial.begin(9600);
-  
+
   //enCoder
   AdaEncoder::addEncoder('a', a_PINA, a_PINB);
 
 }
 
 void loop () {
+  
+
+
   //read the sensor
   int sensorValue = analogRead(A0);
   //print the results
@@ -37,7 +40,7 @@ void loop () {
   Serial.print(",");
 
 
-//JoyStick
+  //JoyStick
   sensorValue = analogRead(A4);
   //print the results
   Serial.print(sensorValue);
@@ -48,25 +51,27 @@ void loop () {
   Serial.print(sensorValue);  
   Serial.print(",");
 
-//enCoder
+  //enCoder
   encoder *thisEncoder;
   thisEncoder=AdaEncoder::genie(&clicks, &id);
   if (thisEncoder != NULL) {
     if (clicks > 0) {
       Serial.print("GO RIGHT");
-       Serial.println(",");
+      Serial.println(",");
     }
     if (clicks < 0) {
-       Serial.print(" GO LEFT");
-       Serial.println(",");
+      Serial.print(" GO LEFT");
+      Serial.println(",");
     }
   }
+
   else if (thisEncoder == NULL){
-       Serial.println("No Change");
-//       Serial.println(",");
-    }
+    Serial.println("No Change");
+    //       Serial.println(",");
+  }
 
 }
+
 
 
 
