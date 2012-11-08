@@ -31,7 +31,7 @@ server.listen(8080);								// listen for incoming requests on the server
 console.log("Listening for new clients on port 8080");
 
 // open the serial port. Change the name to the name of your port, just like in Processing and Arduino:
-var myPort = new SerialPort("/dev/tty.usbmodemfd121", { 
+var myPort = new SerialPort("/dev/tty.usbmodem1411", { 
 	// look for return and newline at the end of each data packet:
 	parser: serialport.parsers.readline("\r\n") 
 });
@@ -48,7 +48,7 @@ io.sockets.on('connection', function (socket) {
 		// set the value property of scores to the serial string:
 		serialData.value = data;
 		// for debugging, you should see this in Terminal:
-		console.log(data);
+		// console.log(data);
 		// send a serial event to the web client with the data:
 		socket.emit('serialEvent', serialData);
 	});

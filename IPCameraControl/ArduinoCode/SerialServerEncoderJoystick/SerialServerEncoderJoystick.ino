@@ -45,20 +45,26 @@ void loop () {
 
   sensorValue = analogRead(A5);
   //print the results
-  Serial.println(sensorValue);  
+  Serial.print(sensorValue);  
+  Serial.print(",");
 
 //enCoder
   encoder *thisEncoder;
   thisEncoder=AdaEncoder::genie(&clicks, &id);
   if (thisEncoder != NULL) {
-//    Serial.print(id); Serial.print(':');
     if (clicks > 0) {
-      Serial.println("GO RIGHT");
+      Serial.print("GO RIGHT");
+       Serial.println(",");
     }
     if (clicks < 0) {
-       Serial.println(" GO LEFT");
+       Serial.print(" GO LEFT");
+       Serial.println(",");
     }
   }
+  else if (thisEncoder == NULL){
+       Serial.println("No Change");
+//       Serial.println(",");
+    }
 
 }
 

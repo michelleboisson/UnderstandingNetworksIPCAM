@@ -9,6 +9,9 @@
 		 // when you get a serialdata event, do this:
 		socket.on('serialEvent', function (data) {
 			// look for the textDisplay element in the HTML below:
+			// console.log(data.value)
+			window.test = data.value;
+			window.array = test.split(',')
 			var element = document.getElementById('textDisplay');
 			// set the stuff inside the element's HTML tags to
 			// whatever the 'value' property of the received data is:
@@ -18,7 +21,10 @@
 
 	</head>
 	<body>
-	And the latest is:
-	<div id="textDisplay">Text will show up here</div>
+
+	<div id="textDisplay">Sensor Readings</div>
+	
+	<iframe style="width:1000px; height:1000px;" src="http://128.122.151.224/view/viewer_index.shtml?id=931"></iframe>
+	
 	</body>
 </html>
