@@ -4,7 +4,10 @@
   "description" : "simple serial-to-broswer server application",
   "keywords": "serial, socket.io, node-serialport",
   "author": {
-  	"name":"Tom Igoe"
+  	"name":"Tom Igoe "
+   },
+   "co-author": {
+    "name":"mark breneman "
    },
   "dependencies": {
     "serialport": "1.0.x",

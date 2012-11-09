@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
 		// open a connection to the serial server:
@@ -11,92 +12,141 @@
 			// look for the textDisplay element in the HTML below:
 			// console.log(data.value)
 
+			cam_shop = 'http://128.122.151.221/'
+			cam_icm = 'http://128.122.151.224/'
+			cam_pcomp = 'http://128.122.151.188/'
+			cam_jroom = 'http://128.122.151.200/'
+
+
+			var cameraSelect = document.getElementById('cameraSelect');
 			var tilt = document.getElementById('tilt');
 			var focus = document.getElementById('focus');
 			var zoom = document.getElementById('zoom');
 			var iris = document.getElementById('iris');
-			var cameraSelectX = document.getElementById('cameraSelectX');
-			var cameraSelectY = document.getElementById('cameraSelectY');
 			var encoderValue = document.getElementById('encoderValue');
 
 			var cameraWindow = document.getElementById('cameraWindow');
 
 			// set the stuff inside the element's HTML tags to
 			// whatever the 'value' property of the received data is:
+			
+			if(cameraWindow.src==cam_shop){cameraSelect.innerHTML = "Shop Camera";}
+			if(cameraWindow.src==cam_icm){cameraSelect.innerHTML = "ICM Camera";}
+			if(cameraWindow.src==cam_pcomp){cameraSelect.innerHTML = "PComp Camera";}
+			if(cameraWindow.src==cam_jroom){cameraSelect.innerHTML = "JRoom Camera";}
+
 			tilt.innerHTML = data.tilt;
 			focus.innerHTML = data.focus;
 			zoom.innerHTML = data.zoom;
 			iris.innerHTML = data.iris;
-			// cameraSelectX.innerHTML = data.cameraSelectX;
-			// cameraSelectY.innerHTML = data.cameraSelectY;
 			encoderValue.innerHTML = data.encoderValue;
-
-
-
-			//BRUNA's Variables
-			cam_icm = 'http://128.122.151.224/'
-			cam_shop = 'http://128.122.151.221/'
-			cam_pcomp = 'http://128.122.151.188/'
-			cam_jroom = 'http://128.122.151.200'
-
-			view = 'view/viewer_index.shtml'
+			
 			axis = 'axis-cgi/com/ptz.cgi?camera=1&'
 
+			//TILT CONTROLS
+			tiltUp='move=up'
+			tiltDown='move=down'
+
+			//FOCUS CONTROLS
+			focusUp='rfocus=2500'
+			focusDown='rfocus=-2500'
+
+			//ZOOM CONTROLS
+			zoomUp='rzoom=2500'
+			zoomDown='rzoom=-2500'
+
+			//IRIS CONTROLS
+			irisUp='riris=250'
+			irisDown='riris=-250'
+
+			//PAN CONTROLS
+			panRight='move=right'
+			panLeft='move=left'
+
+			//CAMERA SELECT LOGIC
 			if(data.cameraSelectX == "1023"){
 				cameraWindow.src=cam_icm
-				cameraSelectX.innerHTML = "ICM Room";
 			}
 			else if(data.cameraSelectX == "0"){
 				cameraWindow.src=cam_shop
-				cameraSelectX.innerHTML = "Shop";
 			}
 
 			if(data.cameraSelectY == "1023"){
 				cameraWindow.src=cam_pcomp
-				cameraSelectY.innerHTML = "PComp Room";
+				
 			}
 			else if(data.cameraSelectY == "0"){
 				cameraWindow.src=cam_jroom
-				cameraSelectY.innerHTML = "J Room";
 			}
 
+		
+			//TILT CONTROL LOGIC	
 
-			// console.log(data.tilt)
+			if(data.tilt==1){
 
-			// if(data.tilt>=512){
-			// var s = document.createElement(“script”);
-			// s.setAttribute(“src”, “http://128.122.151.221/axis-cgi/com/ptz.cgi?camera=1&move=up”);
-			// document.body.appendChild(s);
-			// }
+			$.ajax({url: cameraWindow.src+axis+tiltUp, method: 'get'})
+			}
 
+			if(data.tilt==-1){
+			$.ajax({url: cameraWindow.src+axis+tiltDown, method: 'get'})
+			}
 
-			// var elem = document.getElementById("linkid");
-			// if (typeof elem.onclick == "function") {
-			//     elem.onclick.apply(elem);
-			// }
+			//ZOOM CONTROL LOGIC	
+
+			if(data.zoom==1){
+			$.ajax({url: cameraWindow.src+axis+zoomUp, method: 'get'})
+			}
+
+			if(data.zoom==-1){
+			$.ajax({url: cameraWindow.src+axis+zoomDown, method: 'get'})
+			}
+
+			//FOCUS CONTROL LOGIC	
+
+			if(data.focus==1){
+			$.ajax({url: cameraWindow.src+axis+focusUp, method: 'get'})
+			}
+
+			if(data.focus==-1){
+			$.ajax({url: cameraWindow.src+axis+focusDown, method: 'get'})
+			}
+
+			//IRIS CONTROL LOGIC	
+
+			if(data.iris==1){
+			$.ajax({url: cameraWindow.src+axis+irisUp, method: 'get'})
+			}
+
+			if(data.iris==-1){
+			$.ajax({url: cameraWindow.src+axis+irisDown, method: 'get'})
+			}
+
+			//PAN CONTROL LOGIC	
+
+			if(data.encoderValue=='Going Right'){
+			$.ajax({url: cameraWindow.src+axis+panRight, method: 'get'})
+			}
+
+			if(data.encoderValue=='Going Left'){
+			$.ajax({url: cameraWindow.src+axis+panLeft, method: 'get'})
+			}
 
 		});
-
+		
 	</script>
 
 	</head>
 	<body>
 
+	<div id="cameraSelect">CameraSelected</div>
 	<div id="tilt">Tilt Readings</div>
 	<div id="focus">Focus Readings</div>
 	<div id="zoom">Zoom Readings</div>
 	<div id="iris">Iris Readings</div>
-	<div id="cameraSelectX">Camera X Readings</div>
-	<div id="cameraSelectY">Camera Y Readings</div>
 	<div id="encoderValue">Encoder Readings</div>
 
 	
-	<iframe id ="cameraWindow" style="width:1000px; height:1000px;" src="http://128.122.151.224/view/viewer_index.shtml?id=931"></iframe>
-
-<FORM>
-<INPUT TYPE="button" onClick="http://128.122.151.221/axis-cgi/com/ptz.cgi?camera=1&move=up">
-</FORM>
-
+	<iframe id ="cameraWindow" style="width:100%; height:1000px;" src="http://128.122.151.221/"></iframe>
 
 	</body>
 </html>
