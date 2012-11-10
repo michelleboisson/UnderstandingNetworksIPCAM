@@ -3,17 +3,34 @@
 	{
 		"selected_items":
 		[
+			[
+				"cam",
+				"cam_pcomp"
+			],
+			[
+				"pan",
+				"panLeft"
+			],
+			[
+				"iri",
+				"irisRead"
+			],
+			[
+				"zoom",
+				"zoomRead"
+			],
+			[
+				"focus",
+				"focusRead"
+			],
+			[
+				"camer",
+				"cameraWindow"
+			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -39,13 +56,17 @@
 	},
 	"file_history":
 	[
+		"/Users/markbreneman/Documents/ITP/Classes/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/NodeJSCode/InitialStart_nodeSerialServer/SerialServer.js",
+		"/Users/markbreneman/Documents/ITP/Classes/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/NodeJSCode/InitialStart_nodeSerialServer/index.html",
+		"/Users/markbreneman/Documents/ITP/Classes/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/NodeJSCode/InitialStart_nodeSerialServer/package.json",
+		"/Users/markbreneman/Documents/ITP/Classes/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/ArduinoCode/SerialServerJSONed/SerialServerJSONed.ino",
 		"/Volumes/Rikiki Mac Partition/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/NodeJSCode/InitialStart_nodeSerialServer/index.html",
 		"/Volumes/Rikiki Mac Partition/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/NodeJSCode/InitialStart_nodeSerialServer/SerialServer.js",
 		"/Volumes/Rikiki Mac Partition/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/NodeJSCode/InitialStart_nodeSerialServer/ServerTest.js"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -61,7 +82,7 @@
 		[
 		],
 		"highlight": true,
-		"in_selection": false,
+		"in_selection": true,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
@@ -76,34 +97,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
