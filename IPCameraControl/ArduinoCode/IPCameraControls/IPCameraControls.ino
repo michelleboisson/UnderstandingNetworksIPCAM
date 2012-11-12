@@ -25,6 +25,7 @@ int currentIris;
 int irisRead;
 int iris;
 
+int increment;
 
 
 void setup(){
@@ -33,7 +34,7 @@ void setup(){
 
   //Encoder object creation
    AdaEncoder::addEncoder('a', a_PINA, a_PINB);
-
+  increment=10;
 }
 
 void loop () {
@@ -75,10 +76,10 @@ void loop () {
    }
 
 //Tilt Logic - watch for change
-  if(currentTilt>tiltRead){
+  if(currentTilt>tiltRead+increment){
     tilt=1;
   }
-  if(currentTilt<tiltRead){
+  if(currentTilt<tiltRead-increment){
     tilt=-1;
   }
   else if(currentTilt==tiltRead){
@@ -86,10 +87,10 @@ void loop () {
   }
 
 //Zoom Logic - watch for change
-  if(currentZoom>zoomRead){
+  if(currentZoom>zoomRead+increment){
     zoom=1;
   }
-  if(currentZoom<zoomRead){
+  if(currentZoom<zoomRead-increment){
     zoom=-1;
   }
   else if(currentZoom==zoomRead){
@@ -97,10 +98,10 @@ void loop () {
   }
 
 //Focus Logic - watch for change
-  if(currentFocus>focusRead){
+  if(currentFocus>focusRead+increment){
     focus=1;
   }
-  if(currentFocus<focusRead){
+  if(currentFocus<focusRead-increment){
     focus=-1;
   }
   else if(currentFocus==focusRead){
@@ -108,20 +109,20 @@ void loop () {
   }
 
 //Iris Logic - watch for change
-  if(currentIris>irisRead){
+  if(currentIris>irisRead+increment){
     iris=1;
   }
-  if(currentIris>irisRead){
+  if(currentIris<irisRead-increment){
     iris=-1;
   }
   else if(currentIris==irisRead){
-    iris==0;
+    iris=0;
   }
 
 
   // form a JSON-formatted string:
   String jsonString = "{\"tilt\":\"";
-  jsonString += tilt;
+   jsonString += tilt;
    jsonString +="\",\"focus\":\"";
    jsonString += focus;
    jsonString +="\",\"zoom\":\"";
