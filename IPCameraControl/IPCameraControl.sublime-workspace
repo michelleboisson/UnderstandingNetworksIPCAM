@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"marg",
+				"margin-left"
+			],
+			[
 				"cam",
 				"cam_pcomp"
 			],
@@ -56,8 +60,8 @@
 	},
 	"file_history":
 	[
-		"/Users/markbreneman/Documents/ITP/Classes/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/NodeJSCode/InitialStart_nodeSerialServer/SerialServer.js",
 		"/Users/markbreneman/Documents/ITP/Classes/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/NodeJSCode/InitialStart_nodeSerialServer/index.html",
+		"/Users/markbreneman/Documents/ITP/Classes/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/NodeJSCode/InitialStart_nodeSerialServer/SerialServer.js",
 		"/Users/markbreneman/Documents/ITP/Classes/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/NodeJSCode/InitialStart_nodeSerialServer/package.json",
 		"/Users/markbreneman/Documents/ITP/Classes/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/ArduinoCode/SerialServerJSONed/SerialServerJSONed.ino",
 		"/Volumes/Rikiki Mac Partition/Fall 2012/Understanding Networks/05 Outgoing Information/IPCameraControl/NodeJSCode/InitialStart_nodeSerialServer/index.html",
