@@ -89,22 +89,22 @@
 		
 			//TILT CONTROL LOGIC	
 
-			if(data.tilt==1){
+			if(data.tilt==-1){
 
 			$.ajax({url: cameraWindow.src+axis+tiltUp, method: 'get'})
 			}
 
-			if(data.tilt==-1){
+			if(data.tilt==1){
 			$.ajax({url: cameraWindow.src+axis+tiltDown, method: 'get'})
 			}
 
 			//ZOOM CONTROL LOGIC	
 
-			if(data.zoom==1){
+			if(data.zoom==-1){
 			$.ajax({url: cameraWindow.src+axis+zoomUp, method: 'get'})
 			}
 
-			if(data.zoom==-1){
+			if(data.zoom==1){
 			$.ajax({url: cameraWindow.src+axis+zoomDown, method: 'get'})
 			}
 
