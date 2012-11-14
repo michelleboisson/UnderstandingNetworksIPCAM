@@ -25,7 +25,7 @@
 			cam_jroom = 'http://128.122.151.22/'
 
 
-			var cameraSelect = document.getElementById('cameraSelect');
+			// var cameraSelect = document.getElementById('cameraSelect');
 			var tilt = document.getElementById('tilt');
 			var focus = document.getElementById('focus');
 			var zoom = document.getElementById('zoom');
@@ -37,10 +37,10 @@
 			// set the stuff inside the element's HTML tags to
 			// whatever the 'value' property of the received data is:
 			
-			if(cameraWindow.src==cam_shop){cameraSelect.innerHTML = "Shop Camera";}
-			if(cameraWindow.src==cam_icm){cameraSelect.innerHTML = "ICM Camera";}
-			if(cameraWindow.src==cam_pcomp){cameraSelect.innerHTML = "PComp Camera";}
-			if(cameraWindow.src==cam_jroom){cameraSelect.innerHTML = "JRoom Camera";}
+			// if(cameraWindow.src==cam_shop){cameraSelect.innerHTML = "Shop Camera";}
+			// if(cameraWindow.src==cam_icm){cameraSelect.innerHTML = "ICM Camera";}
+			// if(cameraWindow.src==cam_pcomp){cameraSelect.innerHTML = "PComp Camera";}
+			// if(cameraWindow.src==cam_jroom){cameraSelect.innerHTML = "JRoom Camera";}
 
 			tilt.innerHTML = data.tilt;
 			focus.innerHTML = data.focus;
@@ -144,23 +144,22 @@
 	</head>
 	<body>
 
-	<div id="iframeDiv"><iframe id ="cameraWindow" scrolling="no" frameborder="0" style="width: 1293px; height: 823px; margin-top: -130px; margin-left: -21px; overflow:hidden;" src="http://128.122.151.221/"></iframe></div>
+	<div id="iframeDiv"><iframe id ="cameraWindow" scrolling="no" frameborder="0" style="width: 1293px; height: 823px; margin-top: -130px; margin-left: -21px; overflow:hidden;" src="http://128.122.151.22/"></iframe></div>
 
 	<br/>
+<!-- 
+	<img src="img/steering_wheel_2.png" alt="Wheel"><div id="cameraSelect">CameraSelected</div> -->
 
 	<img src="http://itp.nyu.edu/~mbb395/img/pan2.png" style="margin-left: 230px;">
 	<img src="http://itp.nyu.edu/~mbb395/img/tilt_focus2.png">
 	<img src="http://itp.nyu.edu/~mbb395/img/zoom_iris2.png">
 	<img src="http://itp.nyu.edu/~mbb395/img/camera2.png">
 
-	<!--
-	<div id="encoderValue">Encoder Readings</div>
 	<div id="tilt">Tilt Readings</div>
 	<div id="focus">Focus Readings</div>
 	<div id="zoom">Zoom Readings</div>
 	<div id="iris">Iris Readings</div>
-	<div id="cameraSelect">CameraSelected</div>
-	-->
+	<div id="encoderValue">Encoder Readings</div>
 
 	</body>
 </html>
